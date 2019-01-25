@@ -1,0 +1,62 @@
+.card {
+  display: flex;
+  width: 168px;
+  height: 168px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.card.--flipped{
+  animation: .5s card-flip linear;
+  animation-fill-mode: forwards;
+}
+
+.card .__back,
+.card .__front{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 4px #0005, 0 1px 4px -1px #102f;
+}
+
+.card .__back {
+  width: 100%;
+  height: 100%;
+  background-color: brown;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAOUlEQVQoU2NkYGAwZmBgOMuAGxgzQuVwKQSLwxSB1KIrhPORFSErRNGArgibiQwkm0TQTQR9RzCcAN6nD3Cydcb3AAAAAElFTkSuQmCC);
+  position: absolute;
+}
+.card .__back > img {
+  width: 92px;
+}
+.card .__front > img {
+  width: 92px;
+  height: 92px;
+}
+
+.card .__front {
+  display: flex;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: rotate3d(1,1,0, 180deg)
+}
+
+@keyframes card-flip {
+  0% {
+    transform: rotate3d(0, 0, 0, 180deg) scale(1)
+  }
+  40% {
+    transform: rotate3d(0, 0, 0, 180deg) scale(1.2)
+  }
+  80%{
+    transform: rotate3d(1, 1, 0, 180deg) scale(1.2)
+  }
+  100%{
+    transform: rotate3d(1, 1, 0, 180deg) scale(1)
+  }
+}
