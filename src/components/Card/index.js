@@ -2,19 +2,21 @@ import React from "react";
 import cardBack from "./CardBack.svg";
 import "./Card.css";
 
-export default function Card(props) {
+export default function Card({ onSelect, cardFront }) {
   function handleClick(e) {
-    const $cardClasses = e.currentTarget.classList;
+    const $card = e.currentTarget;
 
-    if (!$cardClasses.contains("--flipped")) {
-      $cardClasses.add("--flipped");
+    if (!$card.classList.contains("--flipped")) {
+      $card.classList.add("--flipped");
     }
+
+    onSelect($card);
   }
 
   return (
-    <article className="card" onClick={handleClick}>
+    <article className="card " onClick={handleClick}>
       <div className="__front">
-        <img src={props.cardFront} alt="card front" />
+        <img src={cardFront} alt="card front" />
       </div>
 
       <div className="__back">
