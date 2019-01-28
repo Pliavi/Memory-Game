@@ -1,0 +1,19 @@
+.board {
+  display: grid;
+  width: 90%;
+  justify-content: center;
+  margin: auto;
+  grid-template-columns: repeat(4, 168px);
+  gap: 10px;
+  perspective: 1000px;
+  user-select: none;
+}
+
+.won{
+  display: none;
+  text-align: center;
+}
+
+.--show {
+  display: block;
+}
