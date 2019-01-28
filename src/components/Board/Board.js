@@ -28,17 +28,16 @@ export default function Board() {
 
     if (hand.length === 2) return;
     if (card.flip === FLIPPING) return;
+    if (card.flip === FLIPPED) return;
 
-    if (card.flip !== FLIPPED || card.flip !== UNFLIPPED) {
-      card.flip = FLIPPING;
-      window.setTimeout(() => {
-        card.flip = FLIPPED;
-        setDeck(deck);
-      }, 500);
-
+    card.flip = FLIPPING;
+    window.setTimeout(() => {
+      card.flip = FLIPPED;
       setDeck(deck);
-      setHand([...hand, card]);
-    }
+    }, 500);
+
+    setDeck(deck);
+    setHand([...hand, card]);
   }
 
   useEffect(() => {
