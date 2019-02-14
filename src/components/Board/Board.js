@@ -65,7 +65,9 @@ export default function Board() {
       </div>
       <div className={"won " + (won ? "--show" : "")}>
         <h1>Você venceu!</h1>
-        <button onClick={handleRestart}>Recomeçar</button>
+        <button className="reset-button" onClick={handleRestart}>
+          Recomeçar
+        </button>
       </div>
     </>
   );
